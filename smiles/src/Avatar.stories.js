@@ -1,4 +1,5 @@
 import React from 'react';
+import { withKnobs, select, boolean } from '@storybook/addon-knobs';
 
 import { Avatar } from './Avatar';
 
@@ -9,6 +10,20 @@ export default {
     component: Avatar,
   },
 };
+
+export const knobs = () => (
+  <Avatar
+    loading={boolean('Loading')}
+    size={select('Size', ['tiny', 'small', 'medium', 'large'])}
+    username="Dominic Nguyen"
+    src="https://avatars2.githubusercontent.com/u/263385"
+  />
+);
+
+knobs.story = {
+  decorators: [withKnobs],
+};
+
 
 export const standard = () => (
   <Avatar
